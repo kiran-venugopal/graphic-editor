@@ -2,42 +2,37 @@ import React, { DragEvent } from "react";
 
 const shapes = [
   {
+    id: "1",
     label: "Rectange",
-    key: "rectangle",
-    style: {
-      width: 100,
-      height: 80,
-      x: 10,
-      y: 10,
-      background: "white",
-    },
+    type: "rectangle",
+    width: 100,
+    height: 80,
+    x: 10,
+    y: 10,
+    background: "white",
   },
   {
+    id: "2",
     label: "Circle",
-    key: "circle",
-    style: {
-      borderRadius: "50%",
-      width: 100,
-      height: 100,
-      x: 10,
-      y: 10,
-      background: "white",
-    },
+    type: "circle",
+    borderRadius: "50%",
+    width: 100,
+    height: 100,
+    x: 10,
+    y: 10,
+    background: "white",
   },
   {
+    id: "3",
     label: "Line",
-    key: "line",
-    style: {
-      width: 200,
-      height: 2,
-      x: 10,
-      y: 10,
-      background: "black",
-    },
+    type: "line",
+    width: 200,
+    height: 2,
+    x: 10,
+    y: 10,
+    background: "black",
   },
 ];
-
-const noop = () => {};
 
 function Sidebar() {
   const handleDragStart = (e: DragEvent<HTMLDivElement>, sh: any) => {
@@ -54,9 +49,9 @@ function Sidebar() {
       <div className="shapes">
         {shapes.map((sh) => (
           <div
-            key={sh.key}
+            key={sh.id}
             onDrop={(e) => console.log(e)}
-            className={`shape ${sh.key}`}
+            className={`shape ${sh.type}`}
             draggable={true}
             onDragStart={(e: DragEvent<HTMLDivElement>) => {
               handleDragStart(e, sh);
